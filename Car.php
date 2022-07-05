@@ -1,63 +1,22 @@
 <?php
 
-class Car 
+require_once 'Vehicle.php';
+
+class Car extends Vehicle
 {
-    private int $nbWheels;
-
-    private int $currentSpeed;
-
-    private string $color;
-
-    private int $nbSeats;
+    public const ALLOWED_ENERGIES = [
+        'fuel',
+        'electric',
+    ];
 
     private string $energy;
 
-    private int $levelEnergy;
-        
+    private int $energyLevel;
+
     public function __construct(string $color, int $nbSeats, string $energy)
     {
-      $this->color = $color;
-    }
-
-    public function forward(): string
-    {
-        return "Go !";
-    }
-
-    public function brake(): string
-    {
-        $sentence = "";
-        while ($this->currentSpeed > 0) {
-            $this->currentSpeed--;
-            $sentence .= "Brake !!!";
-        }
-        $sentence .= "I'm stopped !";
-        return $sentence;
-    }
-
-    public function start(): string
-    {
-        return "Let's GO!";
-    }
-
-    public function getNbWheels(): int
-    {
-        return $this->nbWheels;
-    }
-
-    public function getCurrentSpeed(): int
-    {
-        return $this->currentSpeed;   
-    }
-    
-    public function getColor(): string
-    {
-        return $this->color;   
-    }
-
-    public function getNbSeats(): int
-    {
-        return $this->nbSeats;
+        parent::__construct($color, $nbSeats);
+        $this->setEnergy($energy);
     }
 
     public function getEnergy(): string
@@ -65,18 +24,23 @@ class Car
         return $this->energy;
     }
 
+    public function setEnergy(string $energy): Car
+    {
+        if (in_array($energy, self::ALLOWED_ENERGIES)) {
+            $this->energy = $energy;
+        }
+        return $this;
+    }
+
     public function getEnergyLevel(): int
     {
-        return $this->levelEnergy;   
+        return $this->energyLevel;
     }
 
-    public function setCurrentSpeed(int $currentSpeed): void
+    public function setEnergyLevel(int $energyLevel): void
     {
-        if($currentSpeed >= 0) {
-        $this->currentSpeed = $currentSpeed;
-        }
+        $this->energyLevel = $energyLevel;
     }
-
 }
 
 ?>
