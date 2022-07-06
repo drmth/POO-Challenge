@@ -6,3 +6,5 @@ class Bicycle extends Vehicle
 {
   
 }
+
+?>
