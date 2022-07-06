@@ -16,6 +16,28 @@ $truck = new Truck("black", 3, "diesel", 22);
 echo $truck->forward();
 var_dump($truck);
 
+$parkedCar = new Car("red", 5, "diesel");
+$parkedCar->setParkBrake(true);
+$notParkedCar = new Car("red", 5, "diesel");
+$notParkedCar->setParkBrake(false);
+
+try {
+    $parkedCar->start();
+} catch (Exception $e) {
+    echo "Exception : " . $e->getMessage() ."<br>";
+} finally {
+    echo "Ma voiture roule comme un donut<br>";
+}
+
+try {
+    $notParkedCar->start();
+} catch (Exception $e) {
+    echo "Exception : " . $e->getMessage() ."<br>";
+} finally {
+    echo "Ma voiture roule comme un donut<br>";
+}
+
+/*
 // Moving bike
 echo $bicycle->forward();
 echo '<br> Vitesse du vélo : ' . $bicycle->getCurrentSpeed() . ' km/h' . '<br>';
@@ -39,7 +61,4 @@ echo $truck->isFull(22) . '<br>';
 echo $car->brake();
 echo '<br> Vitesse de la voiture : ' . $car->getCurrentSpeed() . ' km/h' . '<br>';
 echo $car->brake();
-echo '<br>';
-
-
-?>
+echo '<br>';*/

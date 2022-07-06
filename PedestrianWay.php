@@ -20,5 +20,3 @@ final class PedestrianWay extends HighWay
         }
     }
 }
-
-?>

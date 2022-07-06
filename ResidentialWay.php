@@ -18,5 +18,3 @@ final class ResidentialWay extends HighWay
         $this->currentVehicles[] = $vehicle;
     }
 }
-
-?>

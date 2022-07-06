@@ -61,5 +61,3 @@ class Truck extends Vehicle
         }
     }
 }
-
-?>

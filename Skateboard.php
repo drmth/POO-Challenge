@@ -4,5 +4,3 @@ class Skateboard extends Vehicle
 {
   
 }
-
-?>
