@@ -1,9 +1,13 @@
 <?php
 
-require 'Bicycle.php';
-require 'Car.php';
-require 'Truck.php';
+require_once 'Bicycle.php';
+require_once 'Car.php';
+require_once 'Truck.php';
+require_once 'Speedometer.php';
 
+echo Speedometer::convertKmToMiles(10);
+
+/*
 $bicycle = new Bicycle('blue', 1);
 echo $bicycle->forward();
 var_dump($bicycle);
@@ -37,7 +41,6 @@ try {
     echo "Ma voiture roule comme un donut<br>";
 }
 
-/*
 // Moving bike
 echo $bicycle->forward();
 echo '<br> Vitesse du vélo : ' . $bicycle->getCurrentSpeed() . ' km/h' . '<br>';
